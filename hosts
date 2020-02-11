@@ -80,4 +80,13 @@ node3.d7b9.internal
 [compute:vars]
 openshift_node_group_name='node-config-compute'
 
+#####################################################
+#### openshift master variables
+#####################################################
 
+openshift_master_api_port=443
+openshift_master_console_port=443
+
+openshift_master_cluster_hostname=loadbalancer.d7b9.internal
+openshift_master_cluster_public_hostname=loadbalancer.d7b9.example.opentlc.com
+openshift_master_default_subdomain=apps.d7b9.example.opentlc.com
