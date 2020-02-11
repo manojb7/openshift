@@ -44,6 +44,49 @@ openshift_master_identity_providers=[{'name': 'htpasswd_auth','login':'true','ch
 openshift_master_htpasswd_file=/root/htpasswd.openshift
 
 #
+
+########################################################
+#### openshift metrics and logging variables
+#######################################################
+
+#enable cluster metrics
+
+openshift_metrics_install_metrics=True
+openshift_metrics_storage_kind=nfs
+openshift_metrics_storage_access_modes=['ReadWriteOnce']
+openshift_metrics_storage_nfs_directory=/srv/nfs/user-vols
+openshift_metrics_storage_nfs_options='*(rw,root_squash)'
+openshift_metrics_storage_volume_name=metrics
+openshift_metrics_storage_volume_size=10Gi
+openshift_metrics_storage_labels={'storage':'metrics'}
+
+openshift_metrics_cassandra_nodeselector={"node-role.kubernetes.io/infra":"true"}
+openshift_metrics_wkular_nodeselector={"node-role.kubernetes.io/infra":"true"}
+openshift_metrics_heapster_nodeselector={"node-role.kubernetes.io/infra":"true"}
+
+#enable cluster logging
+openshift_logging_install_logging=True
+openshift_logging_storage_kind=nfs
+openshift_logging_storage_access_modes=['ReadWriteOnce']
+openshift_logging_storage_nfs_directory=/src/nfs/user-vols
+openshfit_logging_storage_nfs_options='*(rw,root_squash)'
+openshift_logging_storage_volume_name=logging
+openshift_logging_storage_volume_size=10Gi
+openshift_logging_storage_labels={'storage':'logging'}
+
+openshift_logging_es_cluster_size=1
+openshift_logging_es_memory_limit=8Gi
+
+
+openshift_logging_es_node_selector={"node-role..kubernetes.io/infra":"true"}
+openshift_logging_kibana_node_selector={"node-role..kubernetes.io/infra":"true"}
+openshift_logging_curator_node_selector={"node-role..kubernetes.io/infra":"true"}
+
+#Allow use of NFS for logging and metrics
+openshift_enable_unsupported_configurations=True
+
+
+
 ##################################################
 #### openshift hosts
 ##################################################
