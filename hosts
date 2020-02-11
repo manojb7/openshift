@@ -1,0 +1,28 @@
+[OSEv3:vars]
+#####################################
+### Ansible Variables
+#####################################
+timeout=60
+ansible_become=yes
+ansible_user=ec2-user
+####################################
+### Openshift Basic variables
+####################################
+
+#Set openshift_deployment_type
+openshift_deployment_type=openshift-enterprise
+
+#Disable check , if required
+openshift_disable_check="disk_availability,memory_availability"
+
+
+#Node group defenitions
+openshift_node_groups=[{'name': 'node-config-master', 'labels':['node-role.kubernetes.io/master=true']},
+                       {'name': 'node-config-infra', 'labels': ['node-role.kubernetes.io/infra=true']},
+                       {'name': 'node-config-conpute', 'labels' : ['node-role.kubernetes.io/compute=true']}]
+
+#Docker registry credentials for registry.redhat.io
+oreg_auth_user='{{ lookup("env","OREG_AUTH_USER")}}'
+oreg_auth_password='{{ lookup("env", "OREG_AUTH_PASSWORD"}}'
+
+openshift_enable_nusupported_configurations=true
