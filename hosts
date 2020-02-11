@@ -90,3 +90,13 @@ openshift_master_console_port=443
 openshift_master_cluster_hostname=loadbalancer.d7b9.internal
 openshift_master_cluster_public_hostname=loadbalancer.d7b9.example.opentlc.com
 openshift_master_default_subdomain=apps.d7b9.example.opentlc.com
+
+############################################################################
+#### openshift network variables
+###########################################################################
+#
+
+osm_cluster_network_cidr=10.128.0.0/14
+osm_host_subnet_length=9
+openshift_portal_net=172.30.0.0/16
+os_sdn_network_plugin_name='redhat/openshift-ovs-networkpolicy'
