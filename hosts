@@ -32,6 +32,18 @@ oreg_auth_password='{{ lookup("env", "OREG_AUTH_PASSWORD")}}'
 
 openshift_enable_nusupported_configurations=true
 
+###############################################################
+########  openshift authentication variables
+#############################################################
+
+# htpasswd auth
+
+openshift_master_identity_providers=[{'name': 'htpasswd_auth','login':'true','challenge': 'true', 'kind': 'HTpasswdPasswordIdentityProvider'}]
+
+#Defining htpasswd users
+openshift_master_htpasswd_file=/root/htpasswd.openshift
+
+#
 ##################################################
 #### openshift hosts
 ##################################################
