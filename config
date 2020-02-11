@@ -1,0 +1,8 @@
+Host ec2* *.internal
+	
+   User ec2-user
+   IdentityFile ~/.ssh/d7b9key.pem
+   ForwardAgent yes
+   StrictHostKeyChecking no
+   ConnectTimeout 60
+   ConnectionAttempts 10
