@@ -5,6 +5,13 @@
 timeout=60
 ansible_become=yes
 ansible_user=ec2-user
+#default project node selector 
+osm_default_node_selector='node-role.kubernetes.io/compute=true'
+#enable cock-pit
+osm_use_cockpit=true
+osm_cockpit_plugins=['cockpit-kubernetes']
+#configure additional projects
+openshift_additional_projects={'my-infra-project-test': {'default_node_selector': 'node-role'}}
 ####################################
 ### Openshift Basic variables
 ####################################
@@ -72,3 +79,5 @@ node3.d7b9.internal
 
 [compute:vars]
 openshift_node_group_name='node-config-compute'
+
+
