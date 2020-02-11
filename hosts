@@ -23,7 +23,7 @@ openshift_node_groups=[{'name': 'node-config-master', 'labels':['node-role.kuber
 
 #Docker registry credentials for registry.redhat.io
 oreg_auth_user='{{ lookup("env","OREG_AUTH_USER")}}'
-oreg_auth_password='{{ lookup("env", "OREG_AUTH_PASSWORD"}}'
+oreg_auth_password='{{ lookup("env", "OREG_AUTH_PASSWORD")}}'
 
 openshift_enable_nusupported_configurations=true
 
